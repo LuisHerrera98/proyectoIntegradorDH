@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/headRegistroLogin',{title:'Crear Producto'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="logoSuperior">
+            <a href="/" class="logo-centro">
+                <img src="/images/logos/corona-recorte.png" alt="">
+                <h1 class="nombrePrincipal">Nacho Store</h1>
+            </a>
+        </div>
+    </main>
+    <h1 style="margin-top: 12px;text-align: center;">CREAR UN PRODUCTO</h1>
+    <form action="/productos/crear" method="POST" enctype="multipart/form-data" class="formularioPerris">
+        <label for="nombre">Ingrese el nombre</label>
+        <input type="text" name="nombre" id="nombre" class="input-crear">
+        <div class="error nombre" id="div-nombre">
+            <p class="p-errores"  id="parrafo-nombre"></p>
+        </div>
+        <br id="br-nombre">
+        <label for="nombre">Ingrese el precio</label>
+        <input type="number" name="precio" id="precio" class="input-crear">
+        <div class="error precio" id="div-precio">
+            <p class="p-errores" id="parrafo-precio"></p>
+        </div>
+        <br id="br-precio">
+        <label for="nombre">Ingrese la cantidad</label>
+        <input type="number" name="cantidad" id="cantidad" class="input-crear">
+        <div class="error cantidad" id="div-cantidad">
+            <p class="p-errores" id="parrafo-cantidad"></p>
+        </div>
+        <br id="br-cantidad">
+        <label for="nombre">Ingrese el Descuento</label>
+        <input type="number" name="descuento" id="descuento" class="input-crear">
+        <div class="error descuento" id="div-descuento">
+            <p class="p-errores" id="parrafo-descuento"></p>
+        </div>
+        <br id="br-descuento">
+        <label for="categoria">Elija una categoria</label>
+        <select style="display: block;" name="categoria" id="categoria" class="input-crear select-input">
+            <option value="" selected>SELECIONE UNA CATEGORIA</option>
+            <option value="remera">REMERA</option> 
+            <option value="camisa">CAMISA</option> 
+            <option value="campera">CAMPERA</option>
+            <option value="buzo">BUZO</option>
+            <option value="conjunto">CONJUNTOS</option>
+            <option value="saco">SACO</option>
+            <option value="chaleco">CHALECO</option>
+            <option value="musculosa">MUSCULOSA</option>
+            <option value="jean">JEAN</option>
+            <option value="bermuda">BERMUDA</option>
+            <option value="pantalon">PANTALON</option>
+            <option value="short de baño">SHORT DE BAÑO</option>
+            <option value="ropa interior">ROPA INTERIOR</option>
+            <option value="calzado">CALZADO</option>
+          </select>
+          <div class="error categoria" id="div-categoria">
+            <p class="p-errores" id="parrafo-categoria"></p>
+        </div>
+        <br style="display: none;" id="br-categoria">
+        <label for="nombre">Ingrese el talle</label>
+        <input type="number" name="talle_id" id="talle" class="input-crear">
+        <div class="error talle" id="div-talle">
+            <p class="p-errores" id="parrafo-talle"></p>
+        </div>
+        <div class="talles">
+            <li>Talle 38<input type="number"></li>
+            <li>Talle 40<input type="number"></li>
+            <li>Talle 42<input type="number"></li>
+            <li>Talle 44<input type="number"></li>
+            <li>Talle 46<input type="number"></li>
+            <li>Talle 48<input type="number"></li>
+        </div>
+        <br id="br-talle">
+        <label for="imagen">Carga la imagen "Principal"</label>
+        <BR></BR>
+            <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen" id="img-principal">
+            </div>
+            <div class="error color" id="div-imagen">
+                <p class="p-errores" id="parrafo-imagen"></p>
+            </div>
+        <br>
+        <hr>
+        <label for="imagen">Carga otras imagenes (OPCIONAL)</label>
+        <br>
+        <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen">
+            </div>
+        <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen">
+            </div>
+        <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen">
+            </div>
+        <div class="botones-input-file" id="primer-button">Subir imagen <i class="fas fa-file-upload"></i>
+            <input class="subir-imagen-principal" type="file" name="imagen">
+            </div>
+        <hr>
+        <div class="errores">
+            <p class="p-errores" id="total-errores"></p>
+        </div>
+        <button type="submit">Crear Producto</button>
+    </form>
+
+    <%- include('../partials/footer') %>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/scriptCarrusel.js"></script>
+
+    <script src="/javascripts/scripts.js"></script>
+
+    <script src="/javascripts/headroom.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/cargarImagenes.js"></script>
+
+    <script src="/javascripts/validacionVistaCrearProducto.js"></script>
+</body>
+</html>
+

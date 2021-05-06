@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/headCarrito', {title: 'Mis Compras'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <table>
+            <tr>
+                <td><strong>Mis Compras</strong></td>
+                <td><strong>Estado</strong></td>
+            </tr>
+            <%for(let i = 0 ; i < carrito.length ; i++ ){%>
+                <tr>
+                    <td class="" style="padding-top: 0px;">
+                        <h1 style="font-family: sans-serif; font-size: 17px; color: brown;">Orden N°<%=carrito[i].id%></h1>
+                        <div class="imgg">
+                            <i class="fas fa-shopping-cart" style="font-size: 30px; color: black;"></i>
+                        </div>
+                        <br>
+                        <p class="detalle-carrito" style="margin-bottom: 5px;"></p class="producc">
+                        <p class="detalle-carrito" style="margin-bottom: 5px;"></p class="producc">
+                        <p class="detalle-carrito" style="margin-bottom: 5px; color: rgb(70, 131, 10);"></p class="producc">
+                    </td>
+                    <td class="subtotal" style="display: flex; align-items: center; justify-content: space-around; width: 150px; padding-top: 68px;">
+                        <h3 class="prec precio-cantidad"></h3>
+                        
+                        <a href="/compra/<%=carrito[i].id%>"><button style="width: 100%; margin-left: 10px; margin-bottom: 15px;">Ver orden</button></a>
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            <%}%>
+        </table>
+    </main>
+
+        <%- include('../partials/footer') %>
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script src="/javascripts/jquery.min.js"></script>
+
+        <script src="/javascripts/scripts.js"></script>
+    
+        <script src="/javascripts/headroom.min.js"></script>
+    
+        <script src="/javascripts/jquery.min.js"></script>
+    
+        <script src="/javascripts/menu.js"></script>
+    
+    
+    
+    </body>
+    </html>

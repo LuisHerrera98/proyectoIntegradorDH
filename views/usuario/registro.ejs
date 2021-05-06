@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/headRegistroLogin',{title:'Registro'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="logoSuperior">
+            <a href="/" class="logo-centro">
+                <img src="/images/logos/corona-recorte.png" alt="">
+                <h1 class="nombrePrincipal">Nacho Store</h1>
+            </a>
+        </div>
+    </main>
+    <h1 class="titulo-registro">CREAR CUENTA</h1>
+    <hr class="hr-registro">
+    <form action="/users/registro" method="POST" class="formularioPerris">
+      
+        <label for="name">Nombre</label>
+        <input type="text" placeholder="Nombre" name="nombre" id="nombre">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email" name="email" id="email">
+        <br>
+        <label for="contrasenia">Contraseña</label>
+        <input type="password" placeholder="Contraseña" name="contrasenia" id="password">
+        <br>
+        <label for="confirmarContraseña">Confirmar Contraseña</label>
+        <input type="password" placeholder="Confirmar Contraseña" name="rePassword" id="rePassword">
+        <br>
+        <div class="errores">
+            <ul>
+
+            </ul>
+        </div>
+        <%if(typeof errorContrasenias != 'undefined') { %>
+            <p>
+                <ul>
+                    <li>
+                        <%=errorContrasenias%>
+                    </li>
+                </ul>
+            </p>
+       <% } %>
+
+        <%if(typeof errors != 'undefined') { %>
+             <p>
+                 <ul>
+                     <%for(let i = 0; i < errors.length; i++){%>
+                        <li style="color: red;"><%=errors[i].msg%></li>
+                     <% } %>
+                 </ul>
+             </p>
+        <% } %>
+        <button type="submit">Crear cuenta</button>
+    </form>
+
+    <%- include('../partials/footer') %>
+    
+    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/scripts.js"></script>
+
+    <script src="/javascripts/scriptCarrusel.js"></script>
+
+    <script src="/javascripts/headroom.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/validacionesVista-registro.js"></script>
+</body>
+</html>

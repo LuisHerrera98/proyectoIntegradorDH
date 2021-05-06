@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/headCarrito', {title: 'Orden'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <table>
+            <tr>
+                <td><strong>Productos</strong></td>
+                <td><strong>Precio con descuento</strong></td>
+            </tr>
+            <%for(let i = 0 ; i < productos.length ; i++ ){%>
+                <tr>
+                    <td class="">
+                        <div class="imgg">
+                            <img src="/images/imagenesProductos/<%=productos[i].img[0].imagen%>" class="img-carrito" alt="imagen del Producto">
+                        </div>
+                        <p class="detalle-carrito"><%=productos[i].producto.nombre%></p class="producc">
+                        <h3 class="prec precio-unidad">$<%=productos[i].producto.precio%></h3>
+                    </td>
+                    <td class="subtotal">
+                        <h3 class="prec precio-cantidad">$<%=productos[i].producto.precioConDescuento%></h3>
+                        
+                    </td>
+                </tr>
+            <%}%>
+        </table>
+
+        <h2>Total: $<%=productos.total%></h2>
+        
+    </main>
+
+        <%- include('../partials/footer') %>
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script src="/javascripts/jquery.min.js"></script>
+
+        <script src="/javascripts/scripts.js"></script>
+    
+        <script src="/javascripts/headroom.min.js"></script>
+    
+        <script src="/javascripts/jquery.min.js"></script>
+    
+        <script src="/javascripts/menu.js"></script>
+    
+    
+    
+    </body>
+    </html>

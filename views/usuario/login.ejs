@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar</title>
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"> 
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap" rel="stylesheet">
+    
+    <!--Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  
+    <!-- CSS Estilos de Carrusel -->
+    <link rel="stylesheet" href="carrusel.css">
+    
+    <!-- CSS Estilos -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    
+    <!--TIPOGRAFIA GOOGLE FONTS--> 
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+    <!--CSS DEL REGISTRO PERRIS-->
+    <link rel="stylesheet" href="/stylesheets/styleRegistro.css">
+
+     <!--CSS DEL EFECTO DEL HEADER-->
+     <link rel="stylesheet" href="/stylesheets/estilosHeader.css">
+
+     <!--CSS DE LOS INPUT PARA CARGAR IMAGENES-->
+     <link rel="stylesheet" href="/stylesheets/inputFile.css">
+
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="logoSuperior">
+            <a href="/" class="logo-centro">
+                <img src="/images/logos/corona-recorte.png" alt="">
+                <h1 class="nombrePrincipal">Nacho Store</h1>
+            </a>
+        </div>
+    </main>
+    <h1 class="titulo-registro">INGRESAR</h1>
+    <hr class="hr-registro">
+    <form action="/users/login" method="POST" class="formularioPerris">
+        <label for="email">Email</label>
+        <br>
+        <input type="email" placeholder="Email" name="email" id="email">
+        <br>
+        <label for="contraseña">Contraseña</label>
+        <input type="password" placeholder="Contraseña" name="contrasenia" id="password">
+        <br>
+        <label for="recordame">Recordame</label>
+        <input type="checkbox" name="recordame" class="input-recordar">
+        <br>
+        <div class="errores">
+            <ul>
+
+            </ul>
+        </div>
+        <div class="error"></div>
+            
+            <% if (typeof errors != "undefined") { %>
+                 <p style="color: red;">Hay errores</p>
+                 <ul>
+                     <% for (let i = 0; i < errors.length; i++) { %>
+                     <li>
+                        <%= errors[i].msg %>
+                     </li>
+                     <%}%>
+                 </ul>
+             <%}%>
+        </div>
+        <% if (typeof errorValidacion != "undefined") { %>
+            <p style="color: red;"><%=errorValidacion%></p>
+        <%}%>
+        <button type="submit">Ingresar</button>
+    </form>
+
+    <%- include('../partials/footer') %>
+
+    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+    
+    <script src="/javascripts/jquery.min.js"></script>
+    
+    <script src="/javascripts/scripts.js"></script>
+
+    <script src="/javascripts/headroom.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/validacionesVista-login.js"></script>
+</body>
+</html>

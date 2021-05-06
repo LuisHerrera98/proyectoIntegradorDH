@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/headCarrito', {title: 'Listado Usuarios'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <table>
+            <tr>
+                <td><strong>Usuarios</strong></td>
+                <td><strong>Eliminar Usuario</strong></td>
+            </tr>
+            <%for(let i = 0 ; i < usuarios.length ; i++ ){%>
+                <tr>
+                    <td class="">
+                        <div class="imgg">
+                            <img src="/images/logos/imagenUsuario.png" class="img-carrito" alt="imagen del Producto">
+                        </div>
+                        <br>
+                        <p class="detalle-carrito" style="margin-bottom: 5px;"><%=usuarios[i].nombre%></p class="producc">
+                        <p class="detalle-carrito" style="margin-bottom: 5px;"><%=usuarios[i].email%></p class="producc">
+                        <p class="detalle-carrito" style="margin-bottom: 5px;"><%=usuarios[i].telefono%></p class="producc">
+                        <p class="detalle-carrito" style="margin-bottom: 5px;"><%=usuarios[i].direccion%></p class="producc">
+                        
+                    </td>
+                    <td class="subtotal">
+                        <h3 class="prec precio-cantidad"></h3>
+                        <a href="" style="color: rgb(43, 42, 42); margin-left: 35px; margin-top: 5px;"><i class="fas fa-trash-alt prec"></i></a>
+                    </td>
+                </tr>
+            <%}%>
+        </table>
+    </main>
+
+    <%- include('../partials/footer') %>
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script src="/javascripts/jquery.min.js"></script>
+
+        <script src="/javascripts/scripts.js"></script>
+    
+        <script src="/javascripts/headroom.min.js"></script>
+    
+        <script src="/javascripts/jquery.min.js"></script>
+    
+        <script src="/javascripts/menu.js"></script>
+    
+    
+    
+    </body>
+    </html>

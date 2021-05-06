@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Perfil'}) %>
+    <link rel="stylesheet" href="/stylesheets/perfilStyle.css">
+<body>
+    <%- include('../partials/header') %>
+    
+        <div class="logoSuperior">
+            <a href="/" class="logo-centro">
+                <img src="/images/logos/corona-recorte.png" alt="">
+                <h1 class="nombrePrincipal">Nacho Store</h1>
+            </a>
+        </div>
+        
+
+    <div class="miCuenta">
+        
+        
+        <div class="centrarPerfil" >
+                <div class="datos">
+                    <form action="/users/perfil/<%=usuario.id%>" method="POST">
+                        <div class="caja-imagen-perfil">
+                            <img class="perfil " src="/images/logos/imagenUsuario.png" alt="">
+                        </div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" value="<%=usuario.nombre%>">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" value="<%=usuario.email%>">
+                        <label for="telefono">Telefono - WhatsApp</label>
+                        <input type="text" name="telefono" value="<%=usuario.telefono%>">
+                        <label for="direccion">Direccion</label>
+                        <input type="text" name="direccion" value="<%=usuario.direccion%>">
+                        <br>
+                        <div class="caja-imagen-perfil">
+                            <button class="boton" type="submit">ACTUALIZAR MIS DATOS</button>
+                        </div>
+                        <br>
+                    </form>
+                    <a href="/users/eliminar/<%=usuario.id%>"><button class="boton-eliminar">ELIMINAR CUENTA</button></a>
+                </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>
+
+    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/scripts.js"></script>
+
+    <script src="/javascripts/headroom.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/masonry.js"></script>
+
+    <script src="/javascripts/validacionesVista-login.js"></script>
+</body>
+</html>

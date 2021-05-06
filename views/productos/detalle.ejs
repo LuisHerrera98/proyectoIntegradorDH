@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/headDetalle', {title: 'Productos'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <link rel="stylesheet" href="/stylesheets/styleDetalle.css">
+    <main>
+        <div class="logoSuperior">
+        </div>
+    </main>
+    <section class="seccionDetalleProducto">
+        <div class="nav-detalle-producto">
+            <a href="/">Inicio</a>    /
+            <a href="/productos">Productos </a>    /
+            <a href="/">Categoria </a>
+        </div>
+        <hr class="hr-detalle-producto">
+        <div class="titulo-producto">
+            <h1><%=producto.nombre%></h1>
+        </div>
+        <div class="detalleProducto">
+            <div class="cajaDeImagen">
+                <div class="container3">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="carousel center-align tamañoCarrusel">
+                                <%for(let i = 0; i < producto.imagenes.length; i++){%>
+
+                                <div class="carousel-item">
+                                    <img class="img-producto" src="/images/imagenesProductos/<%=producto.imagenes[i].imagen%>" alt="">
+                                </div>
+
+                                <%}%>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="datos-detalle-producto">
+                <p><%=producto.nombre%></p>
+                <p><%=producto.precio%></p>
+                <p>precio 3 cuotas</p>
+                <div class="imagen-mediosDePago">
+                    <p>mediosdepago</p>
+                    <img class="mediosDePagoImagen" src="/images/logos/medios-pago.png" alt="">
+                </div>
+                <hr>
+                <p>Talle</p>
+                <input type="checkbox">
+                <br>
+                <form action="/productos/detalle/<%=producto.id%>" method="POST">
+                    <input style="display: none;" type="number" name="producto_id" value="<%=producto.id%>">
+                    
+                    <div style="display: flex; justify-content: space-around; align-items: center; flex-direction: column;">
+                        <%if(typeof usuario == 'undefined'){%>
+                            <a href="/users/login" class="boton-añadir-producto">Añadir al carrito</a>
+                            <p style="color: red;">Debes estar logeado para comprar</p>
+                        <%}else{%>
+                            <input type="text" value="<%=usuario.id%>" style="display: none;" name="usuario_id">
+                            <button id="añadir-carrito" type="submit" class="boton-comprar-detalle">Añadir al carrito</button>
+                        <%}%>
+                        <%if(typeof usuario != 'undefined'){
+                            if(usuario.tipo == 'admin'){%>
+                                <a href="/productos/editar/<%=producto.id%>" class="boton-editar-producto">editar</a>
+                                <a href="/productos/eliminar/<%=producto.id%>" class="boton-eliminar-producto">eliminar</a>
+                            <%}%>
+                        <%}%>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        
+    </section>
+
+    <%- include('../partials/footer') %>
+
+    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/carruselProducto.js"></script>
+
+    <script src="/javascripts/scriptCarrusel.js"></script>
+
+    <script src="/javascripts/headroom.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/menu.js"></script>
+
+
+
+</body>
+</html>

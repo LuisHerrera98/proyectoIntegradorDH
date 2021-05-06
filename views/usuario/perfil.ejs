@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Perfil'}) %>
+    <link rel="stylesheet" href="/stylesheets/perfilStyle.css">
+<body>
+    <%- include('../partials/header') %>
+    
+        <div class="logoSuperior">
+            <a href="/" class="logo-centro">
+                <img src="/images/logos/corona-recorte.png" alt="">
+                <h1 class="nombrePrincipal">Nacho Store</h1>
+            </a>
+        </div>
+        <%if(usuario.tipo == 'admin'){%>
+            <div style="background-color: rgb(247, 215, 173);">
+                <h1 style="text-align: center; margin-bottom: 0;">Administrar Pagina</h1>
+                <hr>
+                <div class="caja-administrar">
+                    <a href="/listadoUsuarios">Lista de usuarios</a>
+                    <a href="/listadoProductos">Lista de productos</a>
+                    <a href="/listadoOrdenes">Ordenes de compra</a>
+                </div>
+            </div>
+        <%}%>
+
+    <div class="miCuenta">
+        
+        <h2>Mi cuenta de <%=usuario.tipo%>/<a href="/misCompras/<%=usuario.id%>"><button class="boton" style="margin-left: 20px;">Ver mis compras</button></a></h2>
+        <h5>Datos Personales</h5>
+        <div class="centrarPerfil">
+                <div class="datos">
+                    
+                        <div class="caja-imagen-perfil">
+                            <img class="perfil " src="/images/logos/imagenUsuario.png" alt="">
+                        </div>
+                        <label for="nombre">Nombre</label>
+                        <p > <%=usuario.nombre%> </p>
+                        <label for="email">E-mail</label>
+                        <p > <%=usuario.email%> </p>
+                        <label for="telefono">Telefono - WhatsApp</label>
+                        <p > <%=usuario.telefono%> </p>
+                        <label for="direccion">Direccion</label>
+                        <p > <%=usuario.direccion%> </p>
+                        <br>
+                        <div class="caja-imagen-perfil">
+                            <a href="/users/perfileditrar/<%=usuario.id%>"><button class="boton" type="submit">EDITAR PERFIL</button></a>
+                        </div>
+                        <br>
+                    
+                </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>
+
+    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/scripts.js"></script>
+
+    <script src="/javascripts/headroom.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/masonry.js"></script>
+
+    <script src="/javascripts/validacionesVista-login.js"></script>
+</body>
+</html>

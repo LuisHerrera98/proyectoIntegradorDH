@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/headCarrito', {title: 'Carrito'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <table>
+            <tr>
+                <td><strong>Productos</strong></td>
+                <td><strong>Precio con descuento</strong></td>
+            </tr>
+            <%for(let i = 0 ; i < productos.length ; i++ ){
+                if(productos[i].producto.estado=="activo"){%>
+                <tr>
+                    <td class="">
+                        <div class="imgg">
+                            <img src="/images/imagenesProductos/<%=productos[i].img[0].imagen%>" class="img-carrito" alt="imagen del Producto">
+                        </div>
+                        <p class="detalle-carrito"><%=productos[i].producto.nombre%></p class="producc">
+                        <h3 class="prec precio-unidad">$<%=productos[i].producto.precio%></h3>
+                    </td>
+                    <td class="subtotal">
+                        <h3 class="prec precio-cantidad">$<%=productos[i].producto.precioConDescuento%></h3>
+                        <a href="/borrado/<%=productos[i].id%>" style="color: rgb(43, 42, 42); margin-left: 35px; margin-top: 5px;"><i class="fas fa-trash-alt prec"></i></a>
+                    </td>
+                </tr>
+                <%}%>
+            <%}%>
+        </table>
+
+        <h2>Total: $<%=productos.total%></h2>
+        <HR></HR>
+        <BR></BR>
+        
+        <form action="/carrito/<%=usuario.id%>" method="POST" class="formularioPerris">
+            <h1 style="font-size: 32px; margin: auto 0;">Completar datos para la compra</h1>
+            <input type="text" name="usuario_id" value="<%=usuario.id%>" style="display: none;">
+            <input type="text" name="carrito_id" value="<%=carrito.id%>" style="display: none;">
+            <hr>
+            <br>
+            <br>
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" name="nombre" value="<%=usuario.nombre%>" id="nombre" >
+            <BR></BR>
+            <label for="email">E-mail</label>
+            <input type="email" name="email" value="<%=usuario.email%>" id="email">    
+            <BR></BR>
+
+            <label for="telefono">Telefono - WhatsApp - (<span style="font-size: 20px; color: rgb(231, 64, 64); margin-left: 10px; margin-right: 10px;">Obligatorio!</span>)</label>
+            
+            <%if(usuario.telefono == 'undefined'){%>
+                <input type="number" name="telefono" value="" id="telefono">    
+                <BR></BR>
+            <%} else{ %>
+                <input type="number" name="telefono" value="<%=usuario.telefono%>" id="telefono">    
+                <BR></BR>
+            <%}%>
+            
+            <label for="nombre">Direccion (<span style="font-size: 20px; color: rgb(231, 64, 64); margin-left: 10px; margin-right: 10px;">Obligatorio!</span>)</label>
+
+            <%if(usuario.direccion == 0){%>
+                <input type="text" name="direccion" value="" id="direccion">
+            <%} else{ %>
+                <input type="text" name="direccion" value="<%=usuario.direccion%>" id="direccion">
+            <%}%>
+
+            <div class="errores">
+                <ul>
+    
+                </ul>
+            </div>
+            
+
+            <button type="submit">Comprar</button>
+        </form>
+    </main>
+    
+    <%- include('../partials/footer') %>
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script src="/javascripts/jquery.min.js"></script>
+
+        <script src="/javascripts/scripts.js"></script>
+    
+        <script src="/javascripts/headroom.min.js"></script>
+    
+        <script src="/javascripts/jquery.min.js"></script>
+    
+        <script src="/javascripts/menu.js"></script>
+    
+        <script src="/javascripts/validacionesVistaCarrito.js"></script>
+    
+    </body>
+    </html>

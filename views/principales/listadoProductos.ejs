@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/headCarrito', {title: 'Listado De Productos'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <table>
+            <tr>
+                <td><strong>Productos</strong></td>
+                <td><strong>Eliminar producto</strong></td>
+            </tr>
+            <%for(let i = 0 ; i < productos.length ; i++ ){%>
+                <tr>
+                    <td class="">
+                        <div class="imgg">
+                            <img src="/images/imagenesProductos/<%=productos[i].imagenes[0].imagen%>" class="img-carrito" alt="imagen del Producto">
+                        </div>
+                        <br>
+                        <p class="detalle-carrito" style="margin-bottom: 5px;"><%=productos[i].nombre%></p class="producc">
+                        <p class="detalle-carrito" style="margin-bottom: 5px;">$<%=productos[i].precio%></p class="producc">
+                        <p class="detalle-carrito" style="margin-bottom: 5px; color: rgb(70, 131, 10);"><%=productos[i].descuento%>%</p class="producc">
+                    </td>
+                    <td class="subtotal">
+                        <h3 class="prec precio-cantidad"></h3>
+                        <a href="/productos/eliminar/<%=productos[i].id%>" style="color: rgb(43, 42, 42); margin-left: 35px; margin-top: 5px;"><i class="fas fa-trash-alt prec"></i></a>
+                    </td>
+                </tr>
+            <%}%>
+        </table>
+    </main>
+    
+    <%- include('../partials/footer') %>
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script src="/javascripts/jquery.min.js"></script>
+
+        <script src="/javascripts/scripts.js"></script>
+    
+        <script src="/javascripts/headroom.min.js"></script>
+    
+        <script src="/javascripts/jquery.min.js"></script>
+    
+        <script src="/javascripts/menu.js"></script>
+    
+    
+    
+    </body>
+    </html>

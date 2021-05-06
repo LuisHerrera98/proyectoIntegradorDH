@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Categoria'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="logoSuperior">
+            <a href="/" class="logo-centro">
+                <img src="/images/logos/corona-recorte.png" alt="">
+                <h1 class="nombrePrincipal">Nacho Store</h1>
+            </a>
+        </div> 
+    </main>
+    <section>
+        <h2 class="productosDestacados"><%=producto.categoria%></h2>
+        <div class="caja-productos">
+            <% for(var i = 0; i < producto.length; i++){ %>
+                    <article class="caja-producto"> 
+                        <a href="/productos/detalle/<%=producto[i].id%>">
+                            <div class="figure">  
+                                <img src="/images/imagenesProductos/<%=producto[i].imagenes[0].imagen%>" alt="">
+                            </div>
+                            <div class="caja-detalle-producto">
+                                <p class="nombre-producto" name="nombre"><%=producto[i].nombre%></p>
+                                <hr>
+                                <h4 class="precio-producto">$<%=producto[i].precio%></h4>
+                                <h4 class="cuotas-producto" name="descuento"><%=producto[i].descuento%>%OFF</h4>   
+                            </div>
+                        </a>
+                    </article>
+                
+            <% } %>
+        </div>  
+    </section>
+    <a href="/productos/crear"><Button>Crear Producto</Button></a>
+
+
+    <%- include('../partials/footer') %>
+
+    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/scripts.js"></script>
+
+    <script src="/javascripts/headroom.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/masonry.js"></script>
+
+</body>
+</html>

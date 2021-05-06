@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Productos'}) %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="logoSuperior">
+            <a href="/" class="logo-centro">
+                <img src="/images/logos/corona-recorte.png" alt="">
+                <h1 class="nombrePrincipal">Nacho Store</h1>
+            </a>
+        </div>
+        <div class="container3">
+            <div class="row">
+                <div class="col s12">
+                    <div class="tituloYflechas">
+                        <i class="fas fa-long-arrow-alt-left"></i>
+                        <h1 class="center-align titulo">Categorías Principales</h1>
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                    
+
+                    <div class="carousel center-align tamañoCarrusel">
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Remeras</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/remeras"><img src="/images/imagenesCarrusel/remera2.jpeg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Camisas</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/camisas"><img src="/images/imagenesCarrusel/camisa1.jpeg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Camperas</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/camperas"><img src="/images/imagenesCarrusel/campera1.jpeg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Buzos</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/buzos"><img src="/images/imagenesCarrusel/buzo1.jpeg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Conjuntos</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/conjuntos"><img src="/images/imagenesCarrusel/conjunto2.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Sacos</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/sacos"><img src="/images/imagenesCarrusel/saco1.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Chalecos</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/chalecos"><img src="/images/imagenesCarrusel/chaleco1.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Musculosas</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/musculosas"><img src="/images/imagenesCarrusel/musculosa2.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Jeans</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/jeans"><img src="/images/imagenesCarrusel/jean1.jpeg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Bermudas</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/bermudas"><img src="/images/imagenesCarrusel/bermuda1.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Pantalones</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/pantalones"><img src="/images/imagenesCarrusel/pantalon1.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Mallas</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/mallas"><img src="/images/imagenesCarrusel/malla2.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Ropa Interior</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/ropaInterior"><img src="/images/imagenesCarrusel/boxer2.jpg" alt=""></a>
+                        </div>
+
+                        <div class="carousel-item">
+                            <h2 class="subtitulo">Calzado</h2>
+                            <div class="linea-division"></div>
+                            <a href="/productos/calzado"><img src="/images/imagenesCarrusel/zapato1.jpg" alt=""></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <section>
+        <h2 class="productosDestacados">Productos Destacados</h2>
+                <%if(typeof usuario == 'undefined'){%>
+                    <div style="display: none;">
+                        holis
+                    </div>
+                <%}else if(usuario.tipo == 'admin'){%>
+                    <div class="caja-boton-crear-producto">
+                        <a href="/productos/crear" class="a-producto"><button class="b-producto">Crear un Producto</button></a>
+                    </div>
+                <%}%>
+        <div class="caja-productos">
+            <% for(var i = 0; i < productos.length; i++){ %>
+                    <article class="caja-producto"> 
+                        <a href="/productos/detalle/<%=productos[i].id%>">
+                            <div class="figure">  
+                                <img src="/images/imagenesProductos/<%=productos[i].imagenes[0].imagen%>" alt="">
+                            </div>
+                            <div class="caja-detalle-producto">
+                                <p class="nombre-producto" name="nombre"><%=productos[i].nombre%></p>
+                                <hr>
+                                <h4 class="precio-producto">$<%=productos[i].precio%></h4>
+                                <h4 class="cuotas-producto" name="descuento"><%=productos[i].descuento%>%OFF</h4>   
+                            </div>
+                        </a>
+                    </article>
+                
+            <% } %>
+        </div>  
+    </section>
+
+    <%- include('../partials/footer') %>
+
+    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/scripts.js"></script>
+
+    <script src="/javascripts/scriptCarrusel.js"></script>
+
+    <script src="/javascripts/headroom.min.js"></script>
+
+    <script src="/javascripts/jquery.min.js"></script>
+
+    <script src="/javascripts/menu.js"></script>
+
+    <script src="/javascripts/masonry.js"></script>
+
+</body>
+</html>
